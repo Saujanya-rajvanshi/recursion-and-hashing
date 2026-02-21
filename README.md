@@ -1,5 +1,3 @@
-# recursion-and-hashing
-
 # Recursion and Hashing 
 - [Recursion](#RECURSION)
 - [Hashing](#HASHING)
