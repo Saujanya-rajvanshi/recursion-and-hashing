@@ -255,345 +255,436 @@ int main() {
 }
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # HASHING 
 
-**Hashing = storing and searching data in constant time using a key.**
+**Hashing = storing and retrieving data using key–value pairs in constant time (O(1))**
 
-It uses a **hash function** to convert a key into an index of an array.
+* Key → unique identifier
+* Value → data stored
 
+Example:
+
+```id="d1"
+{2 → 4, 1 → 3}
 ```
-index = hash(key)
+
+(2 appears 4 times, 1 appears 3 times)
+
+
+#### Why Hashing?
+
+To **avoid nested loops**
+
+Without hashing:
+
+```id="d2"
+O(n²)
+```
+
+With hashing:
+
+```id="d3"
+O(n)
+```
+
+Core idea:
+**Trade space for time**
+
+#### Hash Table Concept
+
+Internally:
+
+```id="d4"
+Key → Hash Function → Index → Store Value
 ```
 
 Example:
 
+```id="d5"
+2 → hash → index 5
+1 → hash → index 3
 ```
-key = 27
-hash(key) = 27 % 10 = 7
-store at index 7
+
+## Data Structures Used
+
+### (a) unordered_map (MOST IMPORTANT)
+
+```cpp id="d6"
+unordered_map<int, int> mpp;
 ```
 
+* O(1) average
+* Not sorted
 
-hashing can be done for 10^7 in globally and 10^6 in main 
+### (b) map
 
+```cpp id="d7"
+map<int, int> mpp;
+```
 
+* O(log n)
+* Sorted
 
-### code for number hashing 
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
-int hash[10000000] = {0};       //<----- either this ,here it can take 1e7
+### (c) unordered_set
 
-int main() {
-    int n;
-    cin >> n; 
+```cpp id="d8"
+unordered_set<int> st;
+```
 
-    int arr[n];
-    for(int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+* Stores only keys
+* No duplicates
 
-    // frequency array (assuming values 0–12)
-    int hash[13] = {0};       //<----- or this , in here it can take 1e6
+### (d) set
 
-    // precompute frequency
-    for(int i = 0; i < n; i++) {
-        hash[arr[i]]++;
-    }
+```cpp id="d9"
+set<int> st;
+```
 
-    // one query input
-    int x;
-    cin >> x;
+* Sorted + unique
 
-    // output frequency of x
-    cout << hash[x];
+## Basic Operations
 
-    return 0;
+### Insert / Update
+
+```cpp id="d10"
+mpp[x] = 1;
+mpp[x]++;
+```
+
+### Access
+
+```cpp id="d11"
+mpp[x]
+```
+
+### Check existence
+
+```cpp id="d12"
+if(mpp.find(x) != mpp.end())
+```
+
+### Delete
+
+```cpp id="d13"
+mpp.erase(x);
+```
+
+## Traversal
+
+```cpp id="d14"
+for(auto it : mpp){
+    cout << it.first << " " << it.second;
 }
 ```
 
-### code for character hashing
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
+* `it.first` → key
+* `it.second` → value
 
-int main() {
-    string s;
-    cin >> s;
+## Types of Hashing Patterns
 
-    // precompute
-    int hash[256] = {0};
+### Frequency Counting
 
-    for(int i = 0; i < s.size(); i++) {
-        hash[s[i]]++;
-    }
+Most common
 
-    int q;
-    cin >> q;
+```cpp id="d15"
+unordered_map<int,int> mpp;
 
-    while(q--) {
-        char c;
-        cin >> c;
-
-        // fetch frequency of character c
-        cout << hash[c] << endl;
-    }
-
-    return 0;
-}
-```
-### as array hashing has a limit of 10^7 so for above we use stl 
-
-### using map 
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-
-    int n;
-    cin >> n;
-
-    int arr[n];
-    for(int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-
-    // Pre-compute using map
-    map<int, int> mpp;
-
-    for(int i = 0; i < n; i++) {
-        mpp[arr[i]]++;
-    }
-
-    // Print frequency of all elements
-    cout << "Element -> Frequency" << endl;
-    for(auto it : mpp) {
-        cout << it.first << " -> " << it.second << endl;
-    }
-
-    int q;
-    cin >> q;
-
-    while(q--) {
-        int number;
-        cin >> number;
-
-        // Fetch frequency
-        cout << mpp[number] << endl;
-    }
-
-    return 0;
+for(int i = 0; i < n; i++){
+    mpp[arr[i]]++;
 }
 ```
 
+Used in:
 
-## how does a map data structure is created 
-1. division method
-2. folding method
-3. mid square method
-<br>
-in hashing atmost 10 elements are allowed <br>
-These methods are used in **hashing** (especially in hash tables like `unordered_map`, not ordered `map`).
-<br>
-TC = O(1) -> average case
-TC = O(n) -> worst case , n = number of elements in map
+* Majority element
+* Count elements
+* Anagrams
 
-### 1. Division Method
+### Existence Checking
 
-#### Formula:
-
-```
-hash(key) = key % table_size
+```cpp id="d16"
+if(mpp.find(x) != mpp.end())
 ```
 
-#### Idea:
+Used in:
 
-Take remainder after dividing by table size.
+* Duplicate detection
+* Lookup problems
 
-#### Example:
+### Pair / Target Problems
 
-```
-key = 47
-table_size = 10
-47 % 10 = 7
-→ store at index 7
+```cpp id="d17"
+if(mpp.find(target - x) != mpp.end())
 ```
 
-* Simple and fast
-* Choose table_size as prime for better distribution
+Used in:
 
-### 2. Folding Method
+* Two Sum
+* Pair sum
 
-#### Idea:
+### Prefix Sum + Hashing 🔥
 
-Split key into parts, add them together.
+```cpp id="d18"
+sum += arr[i];
 
-#### Example:
-
-```
-key = 12345
-Split: 12 + 34 + 5
-= 51
+if(mpp.find(sum - k) != mpp.end()){
+    // subarray exists
+}
 ```
 
-Then:
+Used in:
 
-```
-51 % table_size
-```
+* Subarray sum = K
+* Longest subarray
 
-* Good for large keys
-* Used when key has many digits
+### Set-based Hashing
 
-### 3. Mid-Square Method
-
-#### Idea:
-
-1. Square the key
-2. Take middle digits
-
-#### Example:
-
-```
-key = 44
-44² = 1936
-Middle digits = 93
+```cpp id="d19"
+unordered_set<int> st;
 ```
 
-Then:
+Used in:
 
-```
-93 % table_size
-```
+* Unique elements
+* Longest consecutive sequence
 
+## Important Behavior
 
+### Auto Initialization
 
-
-
-
-
-
-
-
-
-### Components
-
-1. **Hash function**
-
-   * Converts key → array index
-   * Should be fast and distribute keys evenly
-
-2. **Hash table**
-
-   * Array where values are stored using hashed index
-
-### Basic Operations
-
-* Insert → O(1)
-* Search → O(1)
-* Delete → O(1)
-
-(average case)
-
-### Collision
-
-When two keys get the same index.
-
-Example:
-
-```
-27 % 10 = 7
-37 % 10 = 7   ← collision
+```cpp id="d20"
+mpp[x]++;
 ```
 
-### Collision Handling Methods
+Means:
 
-1. **Separate Chaining**
-
-   * Each index stores a list (vector/linked list)
-   * Multiple values stored at same index
-
-```
-table[7] → [27, 37, 47]
+```id="d21"
+if x not present → value = 0
+then increment → becomes 1
 ```
 
-2. **Open Addressing**
+### Difference: find vs []
 
-   * Find another empty index
-
-Types:
-
-* Linear Probing: `(h + i) % size`
-* Quadratic Probing: `(h + i²) % size`
-* Double Hashing: use second hash function
-
-### Load Factor
-
-```
-load factor = number of elements / table size
+```cpp id="d22"
+mpp[x]        // inserts if not present
+mpp.find(x)   // does NOT insert
 ```
 
-Higher load factor → more collisions → slower
+## 9. map vs unordered_map
 
-### Rehashing
+| Feature | map      | unordered_map |
+| ------- | -------- | ------------- |
+| Time    | O(log n) | O(1)          |
+| Order   | Sorted   | Not sorted    |
+| Use     | Rare     | Most used     |
 
-When table becomes too full:
+## Time Complexity
 
-* Create bigger table
-* Reinsert all elements with new hash
+| Operation | Complexity |
+| --------- | ---------- |
+| Insert    | O(1)       |
+| Access    | O(1)       |
+| Find      | O(1)       |
+| Traverse  | O(n)       |
 
-### Good Hash Function Properties
+## Advantages
 
-* Deterministic (same input → same output)
-* Uniform distribution
-* Fast to compute
-* Minimizes collisions
+* Fast lookup
+* Reduces time complexity
+* Simple implementation
 
-### Applications of Hashing
+## Disadvantages
 
-* Searching in O(1)
-* Counting frequency of elements
-* Finding duplicates
-* Two Sum problem
-* Caching
-* Password storage (with secure hashes)
-* Dictionaries / Maps / Sets
+* Extra space
+* Collisions possible
+* unordered_map worst case O(n)
 
-### Hashing in C++ STL
+## Common Mistakes
 
-1. **unordered_map** (key → value)
+* Using `map` instead of `unordered_map`
+* Using `[]` when you should use `find()`
+* Wrong order in Two Sum
+* Forgetting edge cases
+
+## Standard Templates (MUST REMEMBER)
+
+### Frequency
+
+```cpp id="d23"
+unordered_map<int,int> mpp;
+
+for(int i = 0; i < n; i++){
+    mpp[arr[i]]++;
+}
+```
+
+### Two Sum
+
+```cpp id="d24"
+unordered_map<int,int> mpp;
+
+for(int i = 0; i < n; i++){
+    int rem = target - arr[i];
+
+    if(mpp.find(rem) != mpp.end()){
+        return {mpp[rem], i};
+    }
+
+    mpp[arr[i]] = i;
+}
+```
+
+### Prefix Sum
+
+```cpp id="d25"
+unordered_map<int,int> mpp;
+mpp[0] = 1;
+
+int sum = 0;
+
+for(int i = 0; i < n; i++){
+    sum += arr[i];
+
+    if(mpp.find(sum - k) != mpp.end()){
+        count += mpp[sum - k];
+    }
+
+    mpp[sum]++;
+}
+```
+
+
+
+
+
+## 1. IF you need **frequency / counting**
+
+Use **Frequency Pattern**
+
+### Use:
 
 ```cpp
-unordered_map<int,int> mp;
-mp[5] = 10;        // insert
-cout << mp[5];     // access
+unordered_map<int,int> mpp;
+mpp[x]++;
 ```
 
-2. **unordered_set** (only keys)
+### Applies when:
+
+* Count elements
+* Most frequent / majority
+* Duplicates
+
+## 2. IF you need **check element exists or not**
+
+Use **Lookup / Set Pattern**
+
+### Use:
 
 ```cpp
 unordered_set<int> st;
-st.insert(5);
-if(st.find(5) != st.end()) cout << "Found";
 ```
 
-Average Time Complexity:
+or
 
-* Insert/Search/Delete → **O(1)**
-  Worst case (many collisions) → **O(n)**
+```cpp
+if(mpp.find(x) != mpp.end())
+```
 
-### When to use Hashing
+### Applies when:
 
-* When order does not matter
-* When fast lookup is needed
-* When working with large data
+* Duplicate check
+* Unique elements
+* Fast search
 
-### Limitations
+## 3. IF you need **pair with target (sum/diff)**
 
-* No ordering of elements
-* Extra memory for hash table
-* Worst case can be slow if many collisions
+Use **Pair / Target Pattern**
 
-**In short:**
-Hashing = fast lookup by converting keys into array positions using a hash function.
+### Use:
+
+```cpp
+if(mpp.find(target - x) != mpp.end())
+```
+
+### Applies when:
+
+* Two Sum
+* Pair sum = K
+* Pair difference
+
+## 4. IF you see **subarray + sum = K**
+
+Use **Prefix Sum + Hashing**
+
+### Use:
+
+```cpp
+sum += arr[i];
+
+if(mpp.find(sum - k) != mpp.end())
+```
+
+### Applies when:
+
+* Subarray sum = K
+* Count subarrays
+* Longest subarray
+
+## 5. IF you need **only unique elements**
+
+Use **Set Pattern**
+
+### Use:
+
+```cpp
+unordered_set<int> st;
+```
+
+### Applies when:
+
+* Remove duplicates
+* Distinct elements
+* Sequence problems
+
+## 6. IF you need **index (position)**
+
+Use **Index Mapping Pattern**
+
+### Use:
+
+```cpp
+mpp[x] = i;
+```
+
+### Applies when:
+
+* Return indices
+* First/last occurrence
+* Two Sum (optimal)
+
+## SUPER SHORT MEMORY 
+
+```text
+frequency → mpp[x]++
+exists → set / find
+pair → target - x
+subarray → prefix sum
+unique → set
+index → mpp[x] = i
+```
+
+
