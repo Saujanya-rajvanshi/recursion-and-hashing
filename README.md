@@ -7,8 +7,9 @@
 ## INDEX 
 - [basic](#basic)
 - [relevant questions](#important-questions)
+- [types](#types)
 - [striver questions](#striver-questions)
-
+- [Types of Overflow](#Types-of-Overflow)
 
 ##### basic
 ## Definition
@@ -33,6 +34,7 @@ return_type function(parameters) {
 }
 ```
 
+##### types
 ## 🔄 Types of recursion
 
 1. **Direct recursion**
@@ -44,9 +46,216 @@ return_type function(parameters) {
 4. **Non-tail recursion**
    Work remains after recursive call
 
+
+### 1. Direct Recursion
+
+```cpp
+void print(int n) {
+    if(n == 0) return;
+    cout << n << " ";
+    print(n - 1);
+}
+```
+
+#### Call:
+
+```cpp
+print(3);
+```
+
+#### Output:
+
+```
+3 2 1
+```
+
+Function directly calls itself
+
+### 2. Indirect Recursion
+
+```cpp
+void funB(int n);
+
+void funA(int n) {
+    if(n <= 0) return;
+    cout << n << " ";
+    funB(n - 1);
+}
+
+void funB(int n) {
+    if(n <= 0) return;
+    cout << n << " ";
+    funA(n - 1);
+}
+```
+
+#### Call:
+
+```cpp
+funA(3);
+```
+
+#### Output:
+
+```
+3 2 1
+```
+
+A → B → A → B …
+
+### 3. Tail Recursion
+
+```cpp
+void print(int n) {
+    if(n == 0) return;
+    cout << n << " ";
+    print(n - 1);
+}
+```
+
+#### Call:
+
+```cpp
+print(3);
+```
+
+#### Output:
+
+```
+3 2 1
+```
+
+Work happens **before recursive call** <br>
+Nothing after call
+
+### 4. Non-Tail Recursion
+
+```cpp
+void print(int n) {
+    if(n == 0) return;
+    print(n - 1);
+    cout << n << " ";
+}
+```
+
+#### Call:
+
+```cpp
+print(3);
+```
+
+#### Output:
+
+```
+1 2 3
+```
+
+Work happens **after recursive call** <br>
+
+| Type     | Output Pattern      |
+| -------- | ------------------- |
+| Tail     | 3 2 1 (top → down)  |
+| Non-tail | 1 2 3 (bottom → up) |
+
+
+
+
 ---
 
-### important questions
+
+## Types of Overflow 
+
+### 1️. Integer Overflow
+
+👉 Value exceeds range of `int`
+
+```cpp
+int x = 1e9;
+int y = 1e9;
+int z = x * y;   // ❌ overflow
+```
+
+✅ Fix:
+
+```cpp
+long long z = 1LL * x * y;
+```
+
+### 2️. Signed Overflow
+
+👉 Goes beyond `INT_MAX` or below `INT_MIN`
+
+```cpp
+int x = INT_MAX;
+x = x + 1;   // ❌ overflow
+```
+
+✅ Fix:
+
+* Use `long long`
+* Check before operation
+
+### 3️. Unsigned Overflow
+
+👉 Wraps around (no error)
+
+```cpp
+unsigned int x = 0;
+x = x - 1;   // → very large number
+```
+
+✅ Fix:
+
+* Avoid unsigned unless needed
+
+### 4️. Floating Overflow
+
+👉 Value too large for float/double
+
+```cpp
+double x = 1e308 * 1e10;  // ❌ inf
+```
+
+✅ Fix:
+
+* Use `long double`
+* Scale values
+
+### 5️. Stack Overflow
+
+👉 Too much recursion
+
+```cpp
+void f() { f(); }  // ❌ infinite recursion
+```
+
+✅ Fix:
+
+* Add base case
+* Use iteration
+
+### Common DSA Fixes
+
+#### Multiplication
+
+```cpp
+long long mid = low + (high - low) / 2;  // safe
+```
+
+#### Division Trick
+
+```cpp
+if(a > b / c) → safer than a * c > b
+```
+
+### Use Long Long Everywhere
+
+👉 Especially:
+
+* Binary search
+* Prefix sum
+* Math problems
+
 
 
 
