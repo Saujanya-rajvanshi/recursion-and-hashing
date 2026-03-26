@@ -491,8 +491,10 @@ Example:
 {2 → 4, 1 → 3}
 ```
 
-(2 appears 4 times, 1 appears 3 times)
+(2 appears 4 times, 1 appears 3 times) <br><br>
 
+if not hashing , n x n can take 100s <br>
+10**8 takes 1s (1/10*8) x 10*10
 
 #### Why Hashing?
 
@@ -527,7 +529,35 @@ Example:
 2 → hash → index 5
 1 → hash → index 3
 ```
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
 
+int main() {
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i = 0;i<n; i++) {
+        cin >> arr[i];
+    }
+
+    // precompute
+    int hash[13] = {0};
+    for(int i = 0;i<n; i++) {
+        hash [arr[i]] += 1;
+    }
+
+    int q;
+    cin >> q;
+    while(q--) {
+        int number;
+        cin >> number;
+        // fetch
+        cout << hash [number] << endl;
+   }
+
+return 0;
+```
 ## Data Structures Used
 
 ### (a) unordered_map (MOST IMPORTANT)
@@ -536,6 +566,7 @@ Example:
 unordered_map<int, int> mpp;
 ```
 
+* only individual data type can be key
 * O(1) average
 * Not sorted
 
@@ -545,6 +576,7 @@ unordered_map<int, int> mpp;
 map<int, int> mpp;
 ```
 
+* any data type can be key
 * O(log n)
 * Sorted
 
