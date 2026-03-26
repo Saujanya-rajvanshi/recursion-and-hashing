@@ -493,24 +493,13 @@ Example:
 
 (2 appears 4 times, 1 appears 3 times) <br><br>
 
-if not hashing , n x n can take 100s <br>
-10**8 takes 1s (1/10*8) x 10*10
 
 #### Why Hashing?
 
 To **avoid nested loops**
 
-Without hashing:
-
-```id="d2"
-O(n²)
-```
-
-With hashing:
-
-```id="d3"
-O(n)
-```
+* Without hashing: O(n²) 100s 
+* With hashing: O(n)
 
 Core idea:
 **Trade space for time**
@@ -677,7 +666,7 @@ Used in:
 * Two Sum
 * Pair sum
 
-### Prefix Sum + Hashing 🔥
+### Prefix Sum + Hashing 
 
 ```cpp id="d18"
 sum += arr[i];
