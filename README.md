@@ -10,6 +10,7 @@
 - [types](#types)
 - [striver questions](#striver-questions)
 - [Types of Overflow](#Types-of-Overflow)
+- [leetcode](#leetcode)
 
 ##### basic
 ## Definition
@@ -463,6 +464,273 @@ int main() {
     return 0;
 }
 ```
+
+
+## leetcode 
+
+### 0. RECURSION BASICS 
+
+## 🧠 What to learn
+
+```text
+base case
+recursive call
+call stack understanding
+```
+
+## Questions
+
+* Fibonacci Number
+* Climbing Stairs
+* Pow(x, n)
+
+---
+
+# 🔹 1. RECURSION ON ARRAYS / STRINGS
+
+## 🧠 Pattern
+
+```text
+process one element → recurse rest
+```
+
+## ✅ Questions
+
+* Reverse String
+* Palindrome Linked List
+* Remove All Occurrences of a Substring
+
+---
+
+# 🔹 2. BACKTRACKING (MOST IMPORTANT)
+
+👉 This is **core recursion skill**
+
+## 🧠 Pattern
+
+```text
+choose → explore → unchoose
+```
+
+---
+
+## ✅ Subtopic A: Subsets
+
+* Subsets
+* Subsets II
+
+---
+
+## ✅ Subtopic B: Combinations
+
+* Combinations
+* Combination Sum
+* Combination Sum II
+
+---
+
+## ✅ Subtopic C: Permutations
+
+* Permutations
+* Permutations II
+
+---
+
+## ✅ Subtopic D: Strings
+
+* Letter Combinations of a Phone Number
+* Generate Parentheses
+
+---
+
+# 🔹 3. RECURSION WITH CONDITIONS (PRUNING)
+
+## 🧠 Pattern
+
+```text
+stop early if invalid
+```
+
+## ✅ Questions
+
+* Palindrome Partitioning
+* Restore IP Addresses
+
+---
+
+# 🔹 4. GRID / MATRIX RECURSION
+
+## 🧠 Pattern
+
+```text
+move in directions (DFS)
+```
+
+## ✅ Questions
+
+* Flood Fill
+* Number of Islands
+* Word Search
+
+---
+
+# 🔹 5. TREE RECURSION (VERY IMPORTANT)
+
+## 🧠 Pattern
+
+```text
+solve left + solve right
+```
+
+## ✅ Questions
+
+* Maximum Depth of Binary Tree
+* Same Tree
+* Path Sum
+
+---
+
+# 🔹 6. HARDER BACKTRACKING (ADVANCED)
+
+## 🧠 Pattern
+
+```text
+multiple constraints + pruning
+```
+
+## ✅ Questions
+
+* N-Queens
+* Sudoku Solver
+
+---
+
+# 🔥 MASTER PATTERN SUMMARY
+
+| Pattern         | Core Idea             |
+| --------------- | --------------------- |
+| Basic recursion | function calls itself |
+| Subsets         | include / exclude     |
+| Permutations    | fix position          |
+| Combinations    | choose elements       |
+| Backtracking    | undo choices          |
+| DFS             | explore directions    |
+| Tree recursion  | left + right          |
+
+---
+
+# 🔥 MUST KNOW TEMPLATES
+
+---
+
+## 1. Subset Template
+
+```cpp
+void solve(int i, vector<int>& nums, vector<int>& temp) {
+    if(i == nums.size()) {
+        ans.push_back(temp);
+        return;
+    }
+
+    // include
+    temp.push_back(nums[i]);
+    solve(i+1, nums, temp);
+
+    // exclude
+    temp.pop_back();
+    solve(i+1, nums, temp);
+}
+```
+
+---
+
+## 2. Backtracking Template
+
+```cpp
+void solve(...) {
+    if(base case) {
+        ans.push_back(...);
+        return;
+    }
+
+    for(choice) {
+        make choice;
+        solve(...);
+        undo choice;
+    }
+}
+```
+
+---
+
+# 🔥 How many questions you REALLY need?
+
+👉 If you do:
+
+```text
+15–20 questions (properly)
+```
+
+👉 You can solve:
+
+```text
+90% recursion problems
+```
+
+---
+
+# 🎯 Final Strategy
+
+1. Start with subsets → easiest
+2. Then permutations
+3. Then combinations
+4. Then backtracking problems
+5. Then trees
+
+---
+
+# 🚀 Important Advice
+
+👉 Don’t just solve — **understand pattern**
+
+Ask:
+
+```text
+Is it include/exclude?
+Is it permutation?
+Is it DFS?
+```
+
+---
+
+# 💬 Question for you
+
+👉 Do you want me to:
+
+1. Teach you **recursion from zero (step-by-step)**
+2. Or start directly with **Subsets (first important pattern)**
+
+Just tell me 👍
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
