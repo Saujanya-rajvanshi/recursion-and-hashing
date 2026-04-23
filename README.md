@@ -468,19 +468,17 @@ int main() {
 
 ## leetcode 
 
-### 0. RECURSION BASICS 
+### 0. RECURSION BASICS
 
-## 🧠 What to learn
+- [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
+
+## 🧠 pattern
 
 ```text
 base case
 recursive call
 call stack understanding
 ```
-
-## Questions
-
-* Fibonacci Number
 * Climbing Stairs
 * Pow(x, n)
 
