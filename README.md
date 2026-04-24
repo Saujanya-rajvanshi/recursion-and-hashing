@@ -471,6 +471,8 @@ int main() {
 ### 0. RECURSION BASICS
 
 - [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
+- [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+- [50. Pow(x, n)](https://leetcode.com/problems/powx-n/)
 
 ## 🧠 pattern
 
@@ -479,12 +481,12 @@ base case
 recursive call
 call stack understanding
 ```
-* Climbing Stairs
-* Pow(x, n)
 
----
+### 1. RECURSION ON ARRAYS / STRINGS
 
-# 🔹 1. RECURSION ON ARRAYS / STRINGS
+* [Reverse String]()
+* [Palindrome Linked List]()
+* [Remove All Occurrences of a Substring]()
 
 ## 🧠 Pattern
 
@@ -492,15 +494,7 @@ call stack understanding
 process one element → recurse rest
 ```
 
-## ✅ Questions
-
-* Reverse String
-* Palindrome Linked List
-* Remove All Occurrences of a Substring
-
----
-
-# 🔹 2. BACKTRACKING (MOST IMPORTANT)
+## 2. BACKTRACKING (MOST IMPORTANT)
 
 👉 This is **core recursion skill**
 
@@ -510,7 +504,8 @@ process one element → recurse rest
 choose → explore → unchoose
 ```
 
----
+
+
 
 ## ✅ Subtopic A: Subsets
 
