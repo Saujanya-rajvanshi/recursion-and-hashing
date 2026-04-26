@@ -484,9 +484,9 @@ call stack understanding
 
 ### 1. RECURSION ON ARRAYS / STRINGS
 
-* [Reverse String]()
-* [Palindrome Linked List]()
-* [Remove All Occurrences of a Substring]()
+* [344. Reverse String](https://leetcode.com/problems/reverse-string/description/)
+* [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+* [1910. Remove All Occurrences of a Substring](https://leetcode.com/problems/remove-all-occurrences-of-a-substring/)
 
 ## 🧠 Pattern
 
@@ -509,8 +509,8 @@ choose → explore → unchoose
 
 ## ✅ Subtopic A: Subsets
 
-* Subsets
-* Subsets II
+* [78. Subsets](https://leetcode.com/problems/subsets/)
+* [90. Subsets II](https://leetcode.com/problems/subsets-ii/)
 
 ---
 
