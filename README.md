@@ -516,7 +516,7 @@ choose → explore → unchoose
 
 ## ✅ Subtopic B: Combinations
 
-* Combinations
+* [Combinations]
 * Combination Sum
 * Combination Sum II
 
