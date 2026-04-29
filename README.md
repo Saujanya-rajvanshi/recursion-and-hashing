@@ -518,7 +518,7 @@ choose → explore → unchoose
 
 * [39. Combinations]
 * [40. Combination Sum]
-* Combination Sum II
+* [Combination Sum II]
 
 ---
 
