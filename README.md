@@ -491,7 +491,7 @@ call stack understanding
 ## 🧠 Pattern
 
 ```text
-process one element → recurse rest
+process one element → recurse re
 ```
 
 ## 2. BACKTRACKING (MOST IMPORTANT)
