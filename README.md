@@ -496,31 +496,16 @@ process one element → recurse re
 
 ## 2. BACKTRACKING (MOST IMPORTANT)
 
-👉 This is **core recursion skill**
-
-## 🧠 Pattern
-
-```text
-choose → explore → unchoose
-```
-
-
-
-
-## ✅ Subtopic A: Subsets
+### Subtopic A: Subsets
 
 * [78. Subsets](https://leetcode.com/problems/subsets/)
 * [90. Subsets II](https://leetcode.com/problems/subsets-ii/)
 
----
-
-## ✅ Subtopic B: Combinations
+### Subtopic B: Combinations
 
 * [39. Combinations]
 * [40. Combination Sum]
 * [Combination Sum II]
-
----
 
 ## ✅ Subtopic C: Permutations
 
