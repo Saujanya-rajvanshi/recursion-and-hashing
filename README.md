@@ -4,6 +4,8 @@
 
 # RECURSION
 
+when we do not have any difference in parameter than only one function will be made
+
 ## INDEX 
 - [basic](#basic)
 - [relevant questions](#important-questions)
