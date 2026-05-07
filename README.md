@@ -5,6 +5,19 @@
 # RECURSION
 
 when we do not have any difference in parameter than only one function will be made
+```cpp
+string removeOccurrences(string s, string part) {
+
+        size_t pos = s.find(part);                    // find() gives starting index of substring
+
+        if(pos == string::npos) return s;             // base case
+
+        s.erase(pos, part.length());                  // remove
+
+        return removeOccurrences(s, part);            // recursive call
+        
+    }
+```
 
 ## INDEX 
 - [basic](#basic)
