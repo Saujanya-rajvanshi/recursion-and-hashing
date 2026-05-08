@@ -7,9 +7,9 @@
 ## INDEX 
 - [basic](#basic)
 - [types](#Types-of-recursion)
-- [striver questions](#striver-questions)
 - [recursion call](#recursive-call-on-memory-stack)
 - [Types of Overflow](#Types-of-Overflow)
+- [striver questions](#striver-questions)
 - [leetcode](#leetcode)
 
 ## basic
