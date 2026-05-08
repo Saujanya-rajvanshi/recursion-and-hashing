@@ -4,36 +4,21 @@
 
 # RECURSION
 
-when we do not have any difference in parameter than only one function will be made
-```cpp
-string removeOccurrences(string s, string part) {
-
-        size_t pos = s.find(part);                    // find() gives starting index of substring
-
-        if(pos == string::npos) return s;             // base case
-
-        s.erase(pos, part.length());                  // remove
-
-        return removeOccurrences(s, part);            // recursive call
-        
-    }
-```
-
 ## INDEX 
 - [basic](#basic)
 - [relevant questions](#important-questions)
-- [types](#types)
+- [types](#Types-of-recursion)
 - [striver questions](#striver-questions)
+- [recursion call](#recursive-call-on-memory-stack)
 - [Types of Overflow](#Types-of-Overflow)
 - [leetcode](#leetcode)
 
-##### basic
-## Definition
+## basic
 
 **Recursion** is a technique where a function **calls itself** to solve a problem by breaking it into **smaller subproblems** until a **base case** is reached.
 
 
-## 🧩 Key components
+### Key components
 1. **Base case** → stops recursion
 2. **Recursive case** → function calls itself
 3. **Smaller input** → moves toward base case
@@ -41,7 +26,7 @@ string removeOccurrences(string s, string part) {
 * Without a base case → **infinite recursion** 
 
 
-## 🔧 General form
+### General form
 ```cpp
 return_type function(parameters) {
     if (base_condition)
@@ -50,8 +35,7 @@ return_type function(parameters) {
 }
 ```
 
-##### types
-## 🔄 Types of recursion
+## Types of recursion
 
 1. **Direct recursion**
    Function calls itself directly
@@ -177,6 +161,19 @@ Work happens **after recursive call** <br>
 
 
 ---
+
+## recursive call on memory stack
+
+When a recursive function is called, each function call gets stored in the call stack.
+
+Think of the stack like a pile of plates:
+
+New function call → pushed on top
+Function finishes → removed from top
+
+
+---
+
 
 
 ## Types of Overflow 
@@ -491,11 +488,10 @@ int main() {
 
 ## 🧠 pattern
 
-```text
-base case
-recursive call
-call stack understanding
-```
+* base case
+* recursive call
+-* call stack understanding
+
 
 ### 1. RECURSION ON ARRAYS / STRINGS
 
@@ -505,9 +501,24 @@ call stack understanding
 
 ## 🧠 Pattern
 
-```text
-process one element → recurse re
+* using binary search to reverse
+* string manipulation
+
+when we do not have any difference in parameter than only one function will be made
+```cpp
+string removeOccurrences(string s, string part) {
+
+        size_t pos = s.find(part);                    // find() gives starting index of substring
+
+        if(pos == string::npos) return s;             // base case
+
+        s.erase(pos, part.length());                  // remove
+
+        return removeOccurrences(s, part);            // recursive call
+        
+    }
 ```
+
 
 ## 2. BACKTRACKING (MOST IMPORTANT)
 
@@ -653,61 +664,6 @@ void solve(...) {
     }
 }
 ```
-
----
-
-# 🔥 How many questions you REALLY need?
-
-👉 If you do:
-
-```text
-15–20 questions (properly)
-```
-
-👉 You can solve:
-
-```text
-90% recursion problems
-```
-
----
-
-# 🎯 Final Strategy
-
-1. Start with subsets → easiest
-2. Then permutations
-3. Then combinations
-4. Then backtracking problems
-5. Then trees
-
----
-
-# 🚀 Important Advice
-
-👉 Don’t just solve — **understand pattern**
-
-Ask:
-
-```text
-Is it include/exclude?
-Is it permutation?
-Is it DFS?
-```
-
----
-
-# 💬 Question for you
-
-👉 Do you want me to:
-
-1. Teach you **recursion from zero (step-by-step)**
-2. Or start directly with **Subsets (first important pattern)**
-
-Just tell me 👍
-
-
-
-
 
 
 
