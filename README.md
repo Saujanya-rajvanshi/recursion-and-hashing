@@ -6,7 +6,6 @@
 
 ## INDEX 
 - [basic](#basic)
-- [relevant questions](#important-questions)
 - [types](#Types-of-recursion)
 - [striver questions](#striver-questions)
 - [recursion call](#recursive-call-on-memory-stack)
