@@ -6,8 +6,8 @@
 
 ## INDEX 
 - [basic](#basic)
-- [types](#Types-of-recursion)
-- [recursion call](#recursive-call-on-memory-stack)
+- [types of recursion](#Types-of-recursion)
+- [recursion call on memory stack](#recursive-call-on-memory-stack)
 - [Types of Overflow](#Types-of-Overflow)
 - [striver questions](#striver-questions)
 - [leetcode](#leetcode)
